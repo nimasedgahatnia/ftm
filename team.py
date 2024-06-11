@@ -19,7 +19,7 @@ class Team:
         newplayers = []
         t_shirt_numbers = random.sample(range(1, 100), 23)
         for i in range(1, 24):
-            newplayers.append(Person(fake.first_name_male(),fake.last_name(),random.randint(15, 30),random.choice(positions),t_shirt_numbers[i-1]))
+            newplayers.append(Person(newplayer=True,number=t_shirt_numbers[i-1]))
         return newplayers
     def choose_starting_eleven(self):
         desired_positions = {
