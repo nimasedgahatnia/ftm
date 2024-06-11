@@ -1,22 +1,17 @@
-import numpy as np
+from team import Team
+from players import Person
+import random
 
-# Create a 10x5 football field (you can adjust the size as needed)
-field = np.zeros((10, 5))
+class Game:
+    def __init__(self):
+        self.Home=Team()
+        self.Away=Team()
+        self.initialize_game()
+    def initialize_game(self):
+        print(f"The {self.Home.name} are playing at home against the {self.Away.name} at the {random.choice(['Stadium', 'Arena', 'Field'])}")
+        starting_lineup = self.Home.choose_starting_eleven()
+        for player in starting_lineup:
+            print(player.name, player.position, player.number)    
+        
+game1=Game()
 
-# Define the positions of players and the ball using (row, column) format
-# Let's say '1' represents players of team A, '2' represents team B, and '9' is the ball
-players_team_a = [(1, 1), (1, 3)]
-players_team_b = [(8, 1), (8, 3)]
-ball_position = (5, 2)
-
-# Place the players and the ball on the field
-for position in players_team_a:
-    field[position] = 1
-
-for position in players_team_b:
-    field[position] = 2
-
-field[ball_position] = 9
-
-# Print the field
-print(field)
